@@ -1,0 +1,55 @@
+{
+  "name": "twitch-irc-api",
+  "version": "1.0.0",
+  "description": "Twitch API module for twitch-irc.",
+  "keywords": [
+    "irc",
+    "twitch",
+    "bot",
+    "lib",
+    "library",
+    "stream",
+    "live",
+    "robot",
+    "twitchtv",
+    "twitch.tv",
+    "node",
+    "iojs",
+    "database",
+    "api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twitch-irc/twitch-irc-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twitch-irc/twitch-irc-api/issues"
+  },
+  "author": {
+    "name": "Schmoopiie",
+    "email": "Schmoopiie@gmail.com",
+    "url": "http://www.schmoopiie.com/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./index",
+  "dependencies": {
+    "async": "^0.9.0",
+    "request": "^2.53.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "maintainers": [
+    {
+      "name": "Schmoopiie",
+      "email": "Schmoopiie@gmail.com"
+    }
+  ],
+  "directories": {},
+  "homepage": "https://github.com/twitch-irc/twitch-irc-api"
+}
