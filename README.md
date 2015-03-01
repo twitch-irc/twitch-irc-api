@@ -17,7 +17,7 @@ Please review the [guidelines for contributing](https://github.com/twitch-irc/tw
 
 ## Support
 
-Feel free to [create an issue](https://github.com/twitch-irc/twitch-irc-api/issues/new). We are active on the development of twitch-irc and it's modules and we respond to each and every issues. When submitting an issue, please include your Node/NPM versions, your operating system and the log file or the error message. Please, do your best to explain how to reproduce the issue.
+Don't hesitate to create an issue. We are active on the development of twitch-irc and it's modules and we respond to each and every issues as soon as possible. When submitting your issue, please include your node/npm versions, your operating system and post the error message. Please, do your best to explain how to reproduce your issue.
 
 ## License
 
