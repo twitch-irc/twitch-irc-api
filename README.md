@@ -7,42 +7,9 @@
 $ npm install --save twitch-irc-api
 ```
 
-## Configuration
+## Documentation
 
-```javascript
-var irc = require('twitch-irc');
-
-var clientOptions = {
-    options: {
-        exitOnError: false,
-        database: './data',
-    },
-    channels: ['schmoopiie']
-};
-
-var client = new irc.client(clientOptions);
-var db     = require('twitch-irc-db')(clientOptions);
-
-var api    = require('twitch-irc-api');
-
-var apiOptions = {
-    channel: 'schmoopiie',
-    method: 'GET',
-    path: '/users/schmoopiie',
-    options: {}
-};
-
-// Passing the db is optional.
-api.call(apiOptions, db, function(err, statusCode, response) {
-    if (err) {
-        console.log(err);
-        return;
-    }
-    console.log('Status code: ' + statusCode);
-    console.log('Response from Twitch API:');
-    console.log(JSON.stringify(response));
-})
-```
+[Click here for the online documentation of twitch-irc-api](http://www.schmoopiie.com/docs/twitch-irc/index.php/Modules/Twitch%20API).
 
 ## Contributing Guidelines
 
