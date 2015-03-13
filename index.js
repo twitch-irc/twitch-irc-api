@@ -50,12 +50,14 @@ function queryString(object) {
 }
 
 function call(opt, db, callback) {
-    var channel        = typeof opt.channel !== 'undefined' ? opt.channel.toLowerCase().replace('#', '') : 'no_channel_specified';
+    var channel        = typeof opt.channel !== 'undefined' ? opt.channel : 'no_channel_specified';
     var method         = typeof opt.method !== 'undefined' ? opt.method : 'GET';
     var options        = typeof opt.options !== 'undefined' ? opt.options : {};
     var path           = typeof opt.path === 'string' ? opt.path : '';
     var requestOptions = {};
     var token          = '';
+
+    if (channel !== null) { channel = channel.toLowerCase().replace('#', ''); }
 
     callback = typeof callback === 'function' ? callback : function () {};
 
