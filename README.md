@@ -9,7 +9,7 @@ $ npm install --save twitch-irc-api
 
 ## Documentation
 
-[Click here for the online documentation of twitch-irc-api](http://www.schmoopiie.com/docs/twitch-irc/index.php/Modules/Twitch%20API).
+[Click here for the online documentation of twitch-irc-api](http://www.twitch-irc.com/docs/twitch-irc/index.php/Modules/Twitch%20API).
 
 ## Contributing Guidelines
 
