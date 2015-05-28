@@ -37,14 +37,15 @@ function stringifyPrimitive(v) {
 function queryString(object) {
     if (object === null || !object) { object = {}; }
 
-    return Object.keys(object).map(function(k) {
-        var ks = encodeURIComponent(stringifyPrimitive(k)) + '=';
-        if (Array.isArray(object[k])) {
-            return object[k].map(function(v) {
-                return ks + encodeURIComponent(stringifyPrimitive(v));
+    return Object.keys(object).map(function (param) {
+        param = encodeURIComponent(stringifyPrimitive(param));
+        if (typeof object[param] === 'object') {
+            return Object.keys(object[param]).map(function (subparam) {
+                subparam = encodeURIComponent(stringifyPrimitive(subparam));
+                return (param + '[' + subparam + ']=').toLowerCase() + encodeURIComponent(stringifyPrimitive(object[param][subparam]));
             }).join('&');
         } else {
-            return ks + encodeURIComponent(stringifyPrimitive(object[k]));
+            return param.toLowerCase() + '=' + encodeURIComponent(stringifyPrimitive(object[param]));
         }
     }).join('&');
 }
