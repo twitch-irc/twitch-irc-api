@@ -53,6 +53,8 @@ function call(opt, db, callback) {
     var channel        = typeof opt.channel !== 'undefined' ? opt.channel : 'no_channel_specified';
     var method         = typeof opt.method !== 'undefined' ? opt.method : 'GET';
     var options        = typeof opt.options !== 'undefined' ? opt.options : {};
+    var json           = typeof opt.json !== 'undefined' ? opt.json : null;
+    var clientId       = typeof opt.clientId !== 'undefined' ? opt.clientId : '';
     var path           = typeof opt.path === 'string' ? opt.path : '';
     var requestOptions = {};
     var token          = '';
@@ -81,10 +83,20 @@ function call(opt, db, callback) {
                     url: 'https://api.twitch.tv/kraken' + path + (options ? '?' + options : ''),
                     headers: {
                         'Accept':    'application/vnd.twitchtv.v3+json',
-                        'Client-ID': ''
+                        'Client-ID': clientId
                     },
                     method: method
                 };
+
+		// Add JSON to send
+		if (json !== null) {
+			/* 
+			 * Automatically sends the correct Content-Type header and interprets
+			 * body as JSON. Also parses the response as JSON.
+			 */
+			requestOptions.json = true;
+			requestOptions.body = json;
+		}
 
                 if (token !== '') { requestOptions.headers['Authorization'] = 'OAuth ' + token; }
 
@@ -98,7 +110,12 @@ function call(opt, db, callback) {
                     return callback.call(this, error);
                 }
 
-                try { body = JSON.parse(body); }
+                try {
+			// If JSON was send, the response will be parsed as JSON already
+			if (json === null) {
+				body = JSON.parse(body);
+			}
+		}
                 catch (error) {
                     if (typeof db === 'function') { return db.call(this, error); }
                     return callback.call(this, error);
